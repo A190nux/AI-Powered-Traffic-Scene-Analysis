@@ -30,6 +30,7 @@ To run this notebook in Google Colab, follow these steps:
     !pip install -q accelerate bitsandbytes
     !pip install -q gradio
     !wget -q -O license-plate-finetune-v1x.pt https://huggingface.co/morsetechlab/yolov11-license-plate-detection/resolve/main/license-plate-finetune-v1x.pt
+    !git clone https://github.com/A190nux/AI-Powered-Traffic-Scene-Analysis
     ```
 
 4.  **Import Libraries**: Run the cell to import all the required libraries

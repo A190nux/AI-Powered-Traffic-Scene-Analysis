@@ -111,7 +111,7 @@ To run this notebook in Google Colab, follow these steps:
         gr.Examples(
             examples=[
                 [
-                    "/content/image.jpg",
+                    "/content/AI-Powered-Traffic-Scene-Analysis/images/Example_Image.jpg",
                     0.25,
                     0.25,
                     0.3,

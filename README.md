@@ -14,7 +14,7 @@ The user-friendly interface is built with Gradio, allowing for easy image upload
 
 To run this notebook in Google Colab, follow these steps:
 
-1.  **Open in Google Colab**: Go to `File > Upload notebook` and select this `.ipynb` file, or if it's already on GitHub, `File > Open notebook > GitHub` and paste the URL.
+1.  **Open in Google Colab**: Go to `File > Upload notebook` and select this `Gradio.ipynb` file, or `File > Open notebook > GitHub` and paste this URL `https://github.com/A190nux/AI-Powered-Traffic-Scene-Analysis/blob/main/Gradio.ipynb`.
 
 2.  **GPU Runtime**: Ensure you are using a GPU runtime for optimal performance. Go to `Runtime > Change runtime type` and select `T4 GPU` or a similar GPU accelerator.
 
@@ -269,3 +269,26 @@ Below are 2 test images with their corresponding scene descriptions. You will ne
     The street appears to be in good condition, with no visible cracks or potholes. However, the traffic seems to be moving at a moderate pace, with no signs of congestion or accidents.
     The overall state of the road is reliable for monitoring and ensuring the smooth flow of traffic
     ```
+
+## 5\. Model Choices
+There were five options for the LLM: Qwen-VL, LLaVA, mPLUG-Owl2, Phi 4 Multimodal, and Vision RWKV.
+* **Qwen-VL:**
+  
+  The main problem with Qwen-VL was the quantization. Any time I tried to quantize it, it resulted in data type mismatch.
+
+* **LLaVA:**
+
+  LLava Was the easiest to use and quantize to both 8 bit and 4 bit. In the end, I chose 8 bit because the 4 bit was losing too much accuracy.
+  I was going to use an ONNX to reduce VRAM usage a little bit, but it appears that there are issue with ONNX LLaVA so used transformers in the end. 
+
+* **mPLUG-Owl2:**
+
+  The problem with this one is that its versions are either too big (8b) or too small (2b), and using 4 bit quantization with 8b loses too much accuracy.
+
+* **Phi 4 Multimodal:**
+
+  This model was very interesting but it was not straight forward to use and required a lot of setup to get it to work properly.
+
+* **Vision RWKV:**
+
+  This one is very easy to use and much more memory efficient that the normal transformer architecture but the developers provide pre trained versions only, no instruct versions.
